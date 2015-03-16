@@ -1,0 +1,23 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+{% block content %}{{ block.super }}
+<div class="page-container">
+    <div class="container min-hight margin-top-50">
+        <div class="row margin-bottom-30">
+            <div class="col-md-12 space-mobile">
+                <div class="row margin-bottom-30">
+                    <div class="col-md-12 space-mobile">
+                        <h1><strong>{% block title %}{% editable page.richtextpage.title %}{% endeditable %}{% endblock %}</strong></h1>
+                    </div>
+                </div>
+                <div class="row margin-bottom-20">
+                    {% editable page.richtextpage.content %}
+                    {{ page.richtextpage.content|richtext_filters|safe }}
+                    {% endeditable %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
